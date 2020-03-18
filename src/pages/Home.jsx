@@ -1,14 +1,14 @@
 import React from 'react';
-import './App.css';
+import '../styles/App.css';
 
-function App() {
+function HomePage() {
   return (
     <div className="App">
       <header className="App-header">
-        Welcome to OWC BOOKS
+        <h1>Welcome to OWC BOOKS</h1>
       </header>
     </div>
   );
 }
 
-export default App;
+export default HomePage;
