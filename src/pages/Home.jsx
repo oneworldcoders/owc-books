@@ -1,14 +1,17 @@
-import React from 'react';
-import '../styles/App.css';
+import React, { Component } from "react";
+import Header from "../components/Navbar/Navbar";
+import Layout from "../components/Layout/Layout";
+import "../styles/App.css";
 
-function HomePage() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Welcome to OWC BOOKS</h1>
-      </header>
-    </div>
-  );
+class HomePage extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <Layout />
+      </div>
+    );
+  }
 }
 
 export default HomePage;
