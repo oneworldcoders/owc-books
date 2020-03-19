@@ -1,7 +1,15 @@
 .App {
   text-align: center;
-  /* background-image: url("./assets/stockspines.png");
-  background-position: center;
+  background-image: url("./assets/stockspines.png");
+  min-height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+
+
+  /* background-image: url("./assets/stockspines.png"); */
+  /*background-position: center;
   background-size: cover;
   min-height: 100vh;
   height: 225px; width: 100%;
@@ -12,7 +20,11 @@
   font-size: calc(10px + 2vmin);
   color: white; */
 }
-
+/* .layout{
+  background-image: url("./assets/stockspines.png");
+  min-height: 100vh;
+  background-size: cover;
+} */
 .NF{
   text-decoration: none;
 }

@@ -3,6 +3,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import BookList from "../BookList/BookList"
 import { connect } from "react-redux";
 import { searchBooks } from "../../redux/actions/searchAction";
+import Spinner from "../Spinner/Spinner";
 
 class Layout extends Component {
   constructor(props) {
@@ -23,8 +24,16 @@ class Layout extends Component {
   };
 
   render() {
+    const {books: { loading }} = this.props
+    if (loading) {
+      return (
+        <div>
+          <Spinner />
+        </div>
+      );
+    }
     return (
-      <div>
+      <div className="layout">
         <SearchBar handleChange={this.handleChange} handleSearch={this.handleSearch} />
         <BookList books={this.props.books} />
       </div>

@@ -1,7 +1,11 @@
 import { SEARCH_BOOKS, SEARCH_LOADING } from '../actions/types';
 
 const initialState = {
-  books: [],
+  books: {
+    kind: null,
+    totalItems: null,
+    items: []
+  },
   loading: false,
 };
 
