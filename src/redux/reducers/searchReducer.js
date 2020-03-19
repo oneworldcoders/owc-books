@@ -1,4 +1,4 @@
-import { SEARCH_BOOKS, SEARCH_LOADING } from '../actions/types';
+import { SEARCH_BOOKS, SEARCH_LOADING } from "../actions/types";
 
 const initialState = {
   books: {
@@ -6,7 +6,7 @@ const initialState = {
     totalItems: null,
     items: []
   },
-  loading: false,
+  loading: false
 };
 
 const searchBooksReducer = (state = initialState, action) => {
@@ -14,13 +14,13 @@ const searchBooksReducer = (state = initialState, action) => {
     case SEARCH_LOADING:
       return {
         ...state,
-        loading: true,
+        loading: true
       };
     case SEARCH_BOOKS:
       return {
         ...state,
         books: action.payload,
-        loading: false,
+        loading: false
       };
     default:
       return state;
