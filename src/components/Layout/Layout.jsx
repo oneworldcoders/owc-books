@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import BookList from "../BookList/BookList";
 import { connect } from "react-redux";
-import { searchBooks } from "../../redux/actions/searchAction";
+import { compose } from "redux";
+import { withRouter } from "react-router-dom";
+import { bookDetails } from "../../redux/actions/bookDetailsAction";
+import { searchBooks } from "../../redux/actions/bookSearchAction";
 import Spinner from "../Spinner/Spinner";
 
 class Layout extends Component {
@@ -54,4 +57,7 @@ const mapStateToProps = state => ({
   books: state.searchBooks
 });
 
-export default connect(mapStateToProps, { searchBooks })(Layout);
+export default compose(
+  withRouter,
+  connect(mapStateToProps, { searchBooks, bookDetails })
+)(Layout);
