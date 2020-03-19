@@ -1,0 +1,12 @@
+header {
+ padding: 30px 0 30px 0;
+ background: green;
+ color: white;
+ text-align: center;
+}
+
+h1{
+  display: inline;
+  margin-left: 15px;
+  font-weight: 300;
+}

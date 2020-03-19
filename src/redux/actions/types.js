@@ -1,1 +1,2 @@
 export const SEARCH_BOOKS = 'SEARCH_BOOKS';
+export const SEARCH_LOADING = 'SEARCH_LOADING';
