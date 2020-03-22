@@ -18,6 +18,10 @@
   background-color: none;
 
 }
+.align{
+  display: flex;
+  flex-direction: column;
+}
 .title{
   font-weight: bolder !important;
   /* font-size:3rem !important; */
@@ -38,4 +42,17 @@ color: white;
 .link-d:hover{
   text-decoration: none;
   color: green;
+}
+
+.heart {
+  color: black;
+  float: right;
+}
+
+.clicked {
+  color: red;
+  float: right;
+}
+.tost{
+  margin-top: 3.3rem;
 }
