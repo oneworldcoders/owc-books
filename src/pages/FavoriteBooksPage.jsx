@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import Favorite from "../components/Favorite/Favourite";
+import FavouriteLayout from "../components/FavoriteList/FavouriteLayout";
 import "../styles/App.css";
 
 class FavoritePage extends Component {
-
   render() {
     return (
       <div className="App">
-        <Favorite />
+        <FavouriteLayout />
       </div>
     );
   }

@@ -7,19 +7,21 @@ import Spinner from "../Spinner/Spinner";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import {addFavourite, getFavourite } from "../../redux/actions/bookFavouriteAction";
+import {
+  addFavourite,
+  getFavourite,
+  removeFavourite
+} from "../../redux/actions/bookFavouriteAction";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./BookDetails.css";
-// import DefaultImg from "../../styles/assets/book-b1.jpg";
 
 class Details extends Component {
   constructor(props) {
     super(props);
-    // const { details: { bookDetails: { favorited} }} = props
     this.state = {
       className: "heart"
-    }
+    };
   }
 
   componentDidMount() {
@@ -29,19 +31,37 @@ class Details extends Component {
       }
     } = this.props;
     this.props.bookDetails(id);
-    // this.props.getFavorite()
+    this.props.getFavourite();
+  }
+
+  componentDidUpdate(prevProps) {
+    const {
+      details: {
+        bookDetails: { favourited }
+      }
+    } = this.props;
+    const {
+      details: {
+        bookDetails: { favourited: prevFavourited }
+      }
+    } = prevProps;
+
+    if (prevFavourited !== favourited && favourited === true) {
+      this.setState({ className: "clicked" });
+    }
   }
 
   handleToggle = () => {
+    const {
+      details: {
+        bookDetails: { volumeInfo }
+      }
+    } = this.props;
+
     if (this.state.className === "heart") {
       this.setState({ className: "clicked" });
-      const {
-        details: {
-          bookDetails: { volumeInfo }
-        }
-      } = this.props;
-        
-      this.props.addFavourite(volumeInfo)
+
+      this.props.addFavourite(volumeInfo);
 
       toast.success("Added to favourite", {
         toastId: 1,
@@ -49,6 +69,8 @@ class Details extends Component {
       });
     } else if (this.state.className === "clicked") {
       this.setState({ className: "heart" });
+
+      this.props.removeFavourite(volumeInfo);
       toast.success("Removed from favourite", {
         toastId: 1,
         className: "tost"
@@ -57,17 +79,14 @@ class Details extends Component {
   };
 
   render() {
-    // console.log(this.props.details, 'bookDetails')
     const {
       details: {
         bookDetails: { volumeInfo }
       }
     } = this.props;
-// console.log(volumeInfo.imageLinks, 'rwanda')
     const {
       details: { loading }
     } = this.props;
-    console.log(this.props, 'this.props')
 
     if (loading) {
       return (
@@ -80,9 +99,14 @@ class Details extends Component {
       <div className="details">
         <Card className="details-card">
           <ListGroup className="list-group-flush align">
+            <img
+              src={volumeInfo.imageLinks && volumeInfo.imageLinks.small}
+              alt=""
+            />
+
             <ListGroupItem className="author">
               {volumeInfo.title}{" "}
-              <Link to="" onClick={this.handleToggle}>
+              <Link to="#" onClick={this.handleToggle}>
                 <FontAwesomeIcon
                   size="lg"
                   className={this.state.className}
@@ -92,7 +116,9 @@ class Details extends Component {
             </ListGroupItem>
           </ListGroup>
           <Card.Body>
-            <Card.Text>{volumeInfo.description}</Card.Text>
+            <Card.Text
+              dangerouslySetInnerHTML={{ __html: volumeInfo.description }}
+            />
           </Card.Body>
           <ListGroup className="list-group-flush">
             <ListGroupItem className="author">
@@ -118,5 +144,10 @@ const mapStateToProps = state => ({
 
 export default compose(
   withRouter,
-  connect(mapStateToProps, { bookDetails, addFavourite, getFavourite })
+  connect(mapStateToProps, {
+    bookDetails,
+    addFavourite,
+    getFavourite,
+    removeFavourite
+  })
 )(Details);

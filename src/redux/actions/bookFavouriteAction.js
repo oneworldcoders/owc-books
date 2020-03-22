@@ -1,18 +1,17 @@
 import { getItem, setItem } from "../../helpers/localstorage";
 import { ADD_FAVOURITE, GET_FAVOURITE, REMOVE_FAVOURITE } from "./types";
-import {ifObjectExist} from "../../helpers/index"
+import { ObjectExist } from "../../helpers/index";
 
-
-export const addFavourite = payload => dispatch => {
+export const addFavourite = bookObject => dispatch => {
   const favourites = getItem("favourites") || [];
 
-  if (ifObjectExist(favourites, payload)) return
-  
-  favourites.push({...payload, favourited: true });
+  if (ObjectExist(favourites, bookObject)) return;
+
+  favourites.push({ ...bookObject, favourited: true });
   setItem("favourites", favourites);
   dispatch({
     type: ADD_FAVOURITE,
-    payload: payload
+    payload: bookObject
   });
 };
 
@@ -24,10 +23,13 @@ export const getFavourite = () => dispatch => {
   });
 };
 
-export const removeFavourite = id => dispatch => {
+export const removeFavourite = bookObject => dispatch => {
+  
   let favourites = getItem("favourites") || [];
+
   favourites = favourites.filter(favourite => {
-    return favourite.id !== id;
+      return (favourite.title !== bookObject.title &&
+      favourite.publishedDate !== bookObject.publishedDate)
   });
   setItem("favourites", favourites);
   dispatch({

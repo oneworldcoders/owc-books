@@ -41,7 +41,7 @@ class Layout extends Component {
       );
     }
     return (
-      <div className="layout">
+      <div className="container">
         <SearchBar
           handleChange={this.handleChange}
           handleSearch={this.handleSearch}
