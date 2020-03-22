@@ -6,13 +6,30 @@ h1{
 .link{
   color: white;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.7rem;
+  justify-content: space-between;
 }
 .link:hover{
   color: #1EB2A6;
   text-decoration: none;
   cursor: pointer;
 }
+.link2{
+  color: white;
+  text-decoration: none;
+  font-size: 1.3rem;
+  justify-content: space-between;
+}
+.link2:hover{
+  color: #1EB2A6;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bolder;
+}
 .nav {
   background-color: #84142D;
+  display: flex;
+}
+.right{
+  margin-left: auto;
 }
