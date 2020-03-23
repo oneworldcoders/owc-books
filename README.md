@@ -6,7 +6,7 @@ A book search app using the google books API built with react & redux
 - Users can add any book of thier choice to favorite
 
 NB.
-- This app makes only makes use of local storage to store data.
+- This app makes use of local storage to store data temparily.
 
 ### Heroku Instance
 OWC-Books UI template are hosted [ here ](https://owc-books-app.herokuapp.com/)
