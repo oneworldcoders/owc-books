@@ -5,7 +5,7 @@ import { getFavourite } from "../../redux/actions/bookFavouriteAction";
 import DefaultImg from "../../styles/assets/book-cover.gif";
 import "./FavouriteList.css"
 
-class Favourite extends Component {
+class FavouriteList extends Component {
   componentDidMount() {
     this.props.getFavourite();
   }
@@ -32,4 +32,4 @@ const mapStateToProps = state => ({
   favourites: state.favourites
 });
 
-export default connect( mapStateToProps, { getFavourite })(Favourite);
+export default connect( mapStateToProps, { getFavourite })(FavouriteList);
