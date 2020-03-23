@@ -1,5 +1,5 @@
 ### OWC-Books
-A search app using the google books API built with react & redux book 
+A book search app using the google books API built with react & redux  
 
 - Users can search for books
 - Users can view a specific book details by clicking on the book
