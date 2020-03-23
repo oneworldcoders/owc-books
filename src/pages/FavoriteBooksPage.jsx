@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FavouriteLayout from "../components/FavoriteList/FavouriteLayout";
+import FavouriteLayout from "../components/FavouriteLayout/FavouriteLayout";
 import "../styles/App.css";
 
 class FavoritePage extends Component {
