@@ -15,7 +15,7 @@ const Header = () => {
       </Navbar.Brand>
       <Navbar.Brand className="right">
         <Link className="link2" to="/favorite">
-          Favorite Books
+          ❤ <span>Favorite Books</span>
         </Link>
       </Navbar.Brand>
     </Navbar>

@@ -33,3 +33,9 @@ h1{
 .right{
   margin-left: auto;
 }
+
+@media screen and (max-width: 758px) {
+  .link2 span {
+    display: none;
+  }
+}
